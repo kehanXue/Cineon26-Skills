@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cineon26 胶片批处理"
+  short_description: "导入胶片并初步校色，交给你检查打分，再按要求导出成片"
+  default_prompt: "用 $cineon26-process 导入并初步处理我指定文件夹里的全部胶片，复核画框、修复可恢复错误，保存项目后提示我检查打分，等我给出导出要求再继续。"

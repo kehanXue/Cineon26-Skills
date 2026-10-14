@@ -1,0 +1,14 @@
+# Public files are intentionally allowlisted.
+*
+!/.gitignore
+!/README.md
+!/CHANGELOG.md
+!/skills/
+!/skills/cineon26-process/
+!/skills/cineon26-process/SKILL.md
+!/skills/cineon26-process/agents/
+!/skills/cineon26-process/agents/openai.yaml
+!/skills/cineon26-process/references/
+!/skills/cineon26-process/references/workflows.md
+!/skills/cineon26-process/references/recovery.md
+!/skills/cineon26-process/references/delivery.md
