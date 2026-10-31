@@ -4,6 +4,19 @@
 
 ## English
 
+### v0.1.0-beta.5 — 2026-11-01
+
+Refine the processing and recovery instructions for Cineon26 0.5.0 (120).
+
+- Clarify that the negative and reversal ICC profiles are for color 3F scans; black-and-white 3F scans do not require them.
+- Expand guidance for flat-field references, capture quality, lens correction, and separate RGB and white-light photos.
+- Explain the scope of Basic and Post-processing controls, neutral sampling, image comparison, and white perforations.
+- Check control and snapshot availability for each input type, and restore saved edits only through the available app controls.
+- Check ratings, filters, actual photo selection, and overlapping groups before export.
+- Distinguish locating an original from granting access, and reject a same-named file when its content does not match.
+
+Import and initial preparation still stop for your review. Export uses your latest edits only after you request it.
+
 ### v0.1.0-beta.4 — 2026-11-01
 
 Update operating guidance for Cineon26 0.5.0 (120), covering the changes since the Build 114 Skill release.
@@ -46,6 +59,19 @@ First public beta.
 - Include guidance for RAW Color Balance, 3F frame splitting, ICC setup, and missing export caches.
 
 ## 简体中文
+
+### v0.1.0-beta.5 — 2026-11-01
+
+完善 Cineon26 0.5.0（120）的处理与恢复操作说明。
+
+- 明确负片与反转片 ICC 适用于彩色 3F；黑白 3F 不需要这两项 profile。
+- 补充平场参考、翻拍质量、镜头校正，以及三色和独立白光照片的操作。
+- 说明基础与后期控件的作用范围、中性取样、图像对比及保持白色齿孔。
+- 按输入类型核对控件与快照的可用性，通过实际提供的操作恢复已有编辑。
+- 导出前核对评分、筛选条件、实际选区及重叠分组，避免遗漏或重复。
+- 区分找回原片和授予访问权限，不接受同名但内容不匹配的文件。
+
+导入和初步处理后仍交给你检查；收到导出要求后，才按最新编辑继续。
 
 ### v0.1.0-beta.4 — 2026-11-01
 
