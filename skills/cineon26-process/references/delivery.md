@@ -4,7 +4,7 @@
 
 ## 保存项目与快照
 
-Command-S / Save As 保存 `.cineon26` 到任务输出目录。核对实际路径、名称、保存错误和落盘结果；已命名项目后续自动保存，结束前仍检查。项目保留编辑、评分、分组、快照和小预览，但不包含外部 RAW、DNG、3F 或扫描输入 ICC。不要声称单独的项目就能离线重建全部照片。
+Command-S / Save As 保存 `.cineon26` 到任务输出目录。核对实际路径、名称、保存错误和落盘结果；已命名项目后续自动保存，结束前仍检查。项目保留编辑、评分、分组、快照和小预览，但不包含外部 RAW、DNG、TIFF、3F 或扫描输入 ICC。不要声称单独的项目就能离线重建全部照片。
 
 需要长期保留一个编辑版本时，用 S / Save Snapshot，或照片右键“保存快照”。右键操作针对被右击照片，不必改变当前图。快照预览仅用于浏览比较；Restore Snapshot 才应用历史状态并可能恢复完整画面。Esc 退出比较回到当前编辑。不要在历史预览状态下继续修框或导出，先确认当前状态。
 
@@ -33,17 +33,17 @@ Command-Z / Shift-Command-Z 是会话内撤销/重做，不代替持久快照。
 5. 源文件、ICC 或缓存提示按当前操作恢复；App 已验证完整缓存并允许导出时可以继续。不能仅凭一个来源提示阻止全部导出，也不能用旧缩略图证明全分辨率可用。
 6. 核对输出位置后开始。提交时固定本次目标、设置和照片编辑；后续改图不会进入这次导出。需要新效果时等编辑完成，再导出相应照片。
 
-| 输出需求 | 114 中的选择与核对 |
+| 输出需求 | 120 中的选择与核对 |
 | --- | --- |
 | SDR TIFF | 16-bit TIFF，可选 ProPhoto RGB、Adobe RGB (1998)、Display P3、sRGB |
-| SDR PNG / JPG | PNG 8/16-bit、JPG 质量；切换默认 sRGB，按要求核对最终值 |
-| SDR HEIC | HEIC (HDR) 中关闭 Preserve HDR；按实际界面选择 Display P3 或 sRGB |
+| SDR PNG / JPG | PNG 8/16-bit、JPG 质量 1–5；切换默认 sRGB，按要求核对最终值 |
+| SDR HEIC | HEIC (HDR) 中关闭 Preserve HDR，质量 1–5；按实际界面选择 Display P3 或 sRGB |
 | HDR HEIC | 目标照片已启用 HDR Mode，再选 HEIC (HDR) 并开启 Preserve HDR；混合范围中其他照片仍为 SDR |
 | 尺寸 | Original；4K 长边不超过 3840；1080P 长边不超过 1920 |
 
-**114 的 HDR 保留仅在 HEIC (HDR) 提供；TIFF、PNG、JPG 输出 SDR。** 不沿用早期 JPG/PNG HDR 说明。Display P3 是色彩空间，选择它不等于开启 HDR。HDR 开关在照片中独立于 Post-processing；不要只开后期总开关就认为 HDR 已启用。
+**120 的 HDR 保留仅在 HEIC (HDR) 提供；TIFF、PNG、JPG 输出 SDR。** 不沿用早期 JPG/PNG HDR 说明。Display P3 是色彩空间，选择它不等于开启 HDR。HDR 开关在照片中独立于 Post-processing；不要只开后期总开关就认为 HDR 已启用。
 
-没有目标启用 HDR 时，Preserve HDR 不可用；若用户要求 HDR，先对其指定目标开启 HDR 并检查画面。实际没有可用 HDR 亮度余量时可能输出 SDR。macOS 15 及以上与 macOS 14 的 HEIC HDR 表现及 SDR 回退存在差异，查看软件也可能仅显示 SDR；不能用普通截图或文件后缀证明 HDR 效果。
+没有目标启用 HDR 时，Preserve HDR 不可用；若用户要求 HDR，先对其指定目标开启 HDR 并检查画面。照片本身没有可用 HDR 亮度余量时可能输出 SDR；不要与当前屏幕的显示限制混淆。黑白负片也可在处理后开启 HDR。屏幕无 HDR 能力或暂时缺少额外亮度时，120 会显示简短提示；这不关闭照片的 HDR 状态，也不等于无法保留 HDR 导出。不要擅自调整用户屏幕亮度。macOS 15 及以上与 macOS 14 的 HEIC HDR 表现及 SDR 回退存在差异，查看软件也可能仅显示 SDR；不能用普通截图或文件后缀证明 HDR 效果。
 
 ## 核验成片
 

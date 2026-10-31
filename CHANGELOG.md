@@ -4,6 +4,19 @@
 
 ## English
 
+### v0.1.0-beta.4 — 2026-11-01
+
+Update operating guidance for Cineon26 0.5.0 (120), covering the changes since the Build 114 Skill release.
+
+- Add black-and-white negative selection and tonal controls, plus compatible 16-bit linear RGB TIFF input.
+- Explain independent Color Balance for color 3F scans and the updated ICC settings.
+- Update strip-divider review, free-aspect geometry dragging, frame-detection scale, and full-image inspection with a saved crop.
+- Follow free-aspect crop defaults and preserve image scale when entering or leaving the crop tool.
+- Handle old geometry, source access, project reopening, and cache recovery without replacing saved edits with a new Auto pass.
+- Include black-and-white HDR, limited-display guidance, and current SDR/HDR export options.
+
+The workflow remains: import and prepare, save for your review and ratings, then export only when requested.
+
 ### v0.1.0-beta.3 — 2026-10-22
 
 Update operating guidance for Cineon26 0.5.0 (114), including changes accumulated since the previous Skill release.
@@ -33,6 +46,19 @@ First public beta.
 - Include guidance for RAW Color Balance, 3F frame splitting, ICC setup, and missing export caches.
 
 ## 简体中文
+
+### v0.1.0-beta.4 — 2026-11-01
+
+按 Cineon26 0.5.0（120）更新操作说明，涵盖自 Build 114 对应 Skill 发布以来的变化。
+
+- 补充黑白负片选择与明暗调整，以及兼容的 16-bit 线性 RGB TIFF 输入。
+- 说明彩色 3F 的独立 Color Balance 和新版 ICC 设置。
+- 更新分隔线复核、画框自由拖动、检测缩放比例，以及保留裁切时查看完整图片的操作。
+- 跟进自由比例裁切默认值，以及进出裁切工具时保留图像显示尺度的行为。
+- 处理旧画框、原片权限、项目重开和缓存恢复，避免用重新 Auto 覆盖已有编辑。
+- 补充黑白 HDR、屏幕显示受限提示和当前 SDR／HDR 导出选项。
+
+流程仍为：导入并初步处理，保存后交给你检查打分，收到要求后再导出。
 
 ### v0.1.0-beta.3 — 2026-10-22
 
