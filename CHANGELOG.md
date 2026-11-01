@@ -1,64 +1,12 @@
-# Changelog / 更新记录
+# 更新记录 / Changelog
 
-[English](#english) · [简体中文](#简体中文)
-
-## English
-
-### v0.1.0-beta.5 — 2026-11-01
-
-Refine the processing and recovery instructions for Cineon26 0.5.0 (120).
-
-- Clarify that the negative and reversal ICC profiles are for color 3F scans; black-and-white 3F scans do not require them.
-- Expand guidance for flat-field references, capture quality, lens correction, and separate RGB and white-light photos.
-- Explain the scope of Basic and Post-processing controls, neutral sampling, image comparison, and white perforations.
-- Check control and snapshot availability for each input type, and restore saved edits only through the available app controls.
-- Check ratings, filters, actual photo selection, and overlapping groups before export.
-- Distinguish locating an original from granting access, and reject a same-named file when its content does not match.
-
-Import and initial preparation still stop for your review. Export uses your latest edits only after you request it.
-
-### v0.1.0-beta.4 — 2026-11-01
-
-Update operating guidance for Cineon26 0.5.0 (120), covering the changes since the Build 114 Skill release.
-
-- Add black-and-white negative selection and tonal controls, plus compatible 16-bit linear RGB TIFF input.
-- Explain independent Color Balance for color 3F scans and the updated ICC settings.
-- Update strip-divider review, free-aspect geometry dragging, frame-detection scale, and full-image inspection with a saved crop.
-- Follow free-aspect crop defaults and preserve image scale when entering or leaving the crop tool.
-- Handle old geometry, source access, project reopening, and cache recovery without replacing saved edits with a new Auto pass.
-- Include black-and-white HDR, limited-display guidance, and current SDR/HDR export options.
-
-The workflow remains: import and prepare, save for your review and ratings, then export only when requested.
-
-### v0.1.0-beta.3 — 2026-10-22
-
-Update operating guidance for Cineon26 0.5.0 (114), including changes accumulated since the previous Skill release.
-
-- Use unified single-frame and multi-frame import for RAW, compatible scanner Linear DNG, and 3F, with strip and frame review.
-- Check automatic processing after import or split confirmation and avoid duplicate Auto Color work.
-- Follow the updated frame controls, zoom and pan, geometry reset, and crop behavior.
-- Add batch Color Balance and snapshot guidance while preserving individual edits.
-- Distinguish source access, missing files, ICC problems, and cache recovery.
-- Document SDR formats, Display P3, and HEIC HDR export using current ratings and crops.
-
-The review-and-rate handoff remains the default; export still requires your request.
-
-### v0.1.0-beta.2 — 2026-10-15
-
-- Add English and Simplified Chinese documentation.
-- Simplify the README and release notes around installation, review, and export.
-- No changes to Skill behavior.
-
-### v0.1.0-beta.1 — 2026-10-15
-
-First public beta.
-
-- Import film captures, prepare initial color, check frames, and recover from common GUI errors.
-- Understand film stock and frame format from folder names and conversation.
-- Save the project for review and rating; export only when requested, using the current project edits.
-- Include guidance for RAW Color Balance, 3F frame splitting, ICC setup, and missing export caches.
+[简体中文](#简体中文) · [English](#english)
 
 ## 简体中文
+
+### v0.1.0-beta.6 — 2026-11-01
+
+双语说明统一为简体中文在前、英文在后。包含 beta.5 的 Cineon26 120 处理与恢复操作更新。
 
 ### v0.1.0-beta.5 — 2026-11-01
 
@@ -113,3 +61,63 @@ First public beta.
 - 结合文件夹名字和对话理解胶卷型号、画幅。
 - 保存项目交给用户检查打分；收到要求后，按项目当前编辑导出。
 - 提供 RAW Color Balance、3F 分帧、ICC 配置和导出缓存缺失时的操作提示。
+
+## English
+
+### v0.1.0-beta.6 — 2026-11-01
+
+Present Simplified Chinese before English throughout the bilingual documentation. Includes the Cineon26 120 processing and recovery updates from beta.5.
+
+### v0.1.0-beta.5 — 2026-11-01
+
+Refine the processing and recovery instructions for Cineon26 0.5.0 (120).
+
+- Clarify that the negative and reversal ICC profiles are for color 3F scans; black-and-white 3F scans do not require them.
+- Expand guidance for flat-field references, capture quality, lens correction, and separate RGB and white-light photos.
+- Explain the scope of Basic and Post-processing controls, neutral sampling, image comparison, and white perforations.
+- Check control and snapshot availability for each input type, and restore saved edits only through the available app controls.
+- Check ratings, filters, actual photo selection, and overlapping groups before export.
+- Distinguish locating an original from granting access, and reject a same-named file when its content does not match.
+
+Import and initial preparation still stop for your review. Export uses your latest edits only after you request it.
+
+### v0.1.0-beta.4 — 2026-11-01
+
+Update operating guidance for Cineon26 0.5.0 (120), covering the changes since the Build 114 Skill release.
+
+- Add black-and-white negative selection and tonal controls, plus compatible 16-bit linear RGB TIFF input.
+- Explain independent Color Balance for color 3F scans and the updated ICC settings.
+- Update strip-divider review, free-aspect geometry dragging, frame-detection scale, and full-image inspection with a saved crop.
+- Follow free-aspect crop defaults and preserve image scale when entering or leaving the crop tool.
+- Handle old geometry, source access, project reopening, and cache recovery without replacing saved edits with a new Auto pass.
+- Include black-and-white HDR, limited-display guidance, and current SDR/HDR export options.
+
+The workflow remains: import and prepare, save for your review and ratings, then export only when requested.
+
+### v0.1.0-beta.3 — 2026-10-22
+
+Update operating guidance for Cineon26 0.5.0 (114), including changes accumulated since the previous Skill release.
+
+- Use unified single-frame and multi-frame import for RAW, compatible scanner Linear DNG, and 3F, with strip and frame review.
+- Check automatic processing after import or split confirmation and avoid duplicate Auto Color work.
+- Follow the updated frame controls, zoom and pan, geometry reset, and crop behavior.
+- Add batch Color Balance and snapshot guidance while preserving individual edits.
+- Distinguish source access, missing files, ICC problems, and cache recovery.
+- Document SDR formats, Display P3, and HEIC HDR export using current ratings and crops.
+
+The review-and-rate handoff remains the default; export still requires your request.
+
+### v0.1.0-beta.2 — 2026-10-15
+
+- Add English and Simplified Chinese documentation.
+- Simplify the README and release notes around installation, review, and export.
+- No changes to Skill behavior.
+
+### v0.1.0-beta.1 — 2026-10-15
+
+First public beta.
+
+- Import film captures, prepare initial color, check frames, and recover from common GUI errors.
+- Understand film stock and frame format from folder names and conversation.
+- Save the project for review and rating; export only when requested, using the current project edits.
+- Include guidance for RAW Color Balance, 3F frame splitting, ICC setup, and missing export caches.
