@@ -4,6 +4,18 @@
 
 ## 简体中文
 
+### v0.1.0-beta.7 — 2026-11-15
+
+按 Cineon26 0.5.0（126）更新操作说明，涵盖自 120 以来的累计变化。
+
+- 改为整图导入后按需分帧，说明已校色子帧的编辑继承、逐帧 Auto、合回整条及三色分帧的限制。
+- 补充未收录胶卷、其他画幅和项目内名称编辑，不把名称当作画框尺寸。
+- 区分 SDR／HDR 的独立影调与共用 Color Balance，说明 HDR 直方图、观看背景及独立 HDR 导出。
+- 增加白底导出的版式、尺寸与上次设置检查，完善网络目录访问恢复。
+- 更新画框快捷键、分帧集合选择、快照与缓存恢复，保留已有项目编辑。
+
+流程仍为：导入和初步处理，保存后交给你检查打分，收到要求后再导出。
+
 ### v0.1.0-beta.6 — 2026-11-01
 
 双语说明统一为简体中文在前、英文在后。包含 beta.5 的 Cineon26 120 处理与恢复操作更新。
@@ -63,6 +75,18 @@
 - 提供 RAW Color Balance、3F 分帧、ICC 配置和导出缓存缺失时的操作提示。
 
 ## English
+
+### v0.1.0-beta.7 — 2026-11-15
+
+Update operating guidance for Cineon26 0.5.0 (126), covering the cumulative changes since Build 120.
+
+- Import complete images and split as needed, with guidance for inherited edits, per-frame Auto, joining strips, and RGB split limitations.
+- Add Unlisted Film, Other Frame Format, and project-local names without treating names as frame dimensions.
+- Distinguish separate SDR/HDR tonal edits from shared Color Balance, and explain HDR histograms, viewing backgrounds, and independent HDR export.
+- Add white-background export layouts, final canvas dimensions, remembered settings, and network-folder access recovery.
+- Update geometry shortcuts, split-collection selection, snapshots, and cache recovery while preserving project edits.
+
+The workflow remains: import and prepare, save for your review and ratings, then export only when requested.
 
 ### v0.1.0-beta.6 — 2026-11-01
 

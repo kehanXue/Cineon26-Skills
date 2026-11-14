@@ -4,27 +4,25 @@
 
 ## 简体中文
 
-让 Codex 操作 Cineon26，完成胶片导入、初步校色、画框检查与修复。项目准备好后，由你检查、打分，再告诉 Codex 导出哪些照片、使用什么设置。
+让 Codex 操作 Cineon26，导入胶片、初步校色、检查和修正画框。项目准备好后，由你检查、打分，再告诉 Codex 导出哪些照片、使用什么设置。
 
 ### 使用条件
 
-- Mac 上已安装并可使用 Cineon26。本版说明对应 0.5.0（120），其他构建的控件可能不同。
+- Mac 上已安装并可使用 Cineon26。本版说明对应 **0.5.0（126）**，其他构建的控件可能不同。
 - Codex 环境具备原生 macOS App 的 Computer Use 能力，并已获得所需系统权限。
-- 能访问你的原片目录和导出目录。
+- 能访问你的原片、项目和导出目录。
 
 ### 安装
 
 在 Codex 中输入：
 
 ```text
-用 $skill-installer 安装 https://github.com/kehanXue/Cineon26-Skills/tree/v0.1.0-beta.6/skills/cineon26-process
+用 $skill-installer 安装 https://github.com/kehanXue/Cineon26-Skills/tree/v0.1.0-beta.7/skills/cineon26-process
 ```
 
-也可以从 [Releases](https://github.com/kehanXue/Cineon26-Skills/releases/tag/v0.1.0-beta.6) 下载 **Source code (zip)**，解压后把 `skills/cineon26-process` 文件夹放入 `~/.agents/skills/`。只保留一份已安装的同名 Skill；如果 Codex 中没有出现，重启应用。
+也可以从 [Releases](https://github.com/kehanXue/Cineon26-Skills/releases/tag/v0.1.0-beta.7) 下载 **Source code (zip)**，解压后把 `skills/cineon26-process` 放入 `~/.agents/skills/`。更新时替换已有同名 Skill，只保留一份；如果 Codex 中没有出现，重启应用。
 
-### 使用
-
-**1. 导入并初步处理**
+### 导入并初步处理
 
 把文件夹交给 Codex，附上你知道的胶卷信息即可：
 
@@ -35,37 +33,37 @@
 保存项目后叫我检查打分，先不导出。
 ```
 
-文件夹名字不需要固定格式。Skill 会结合名称和你的描述理解胶卷型号、画幅；信息缺失或有歧义时，再按文件夹询问。
+文件夹名字不需要固定格式。Skill 会结合名称和你的描述理解胶卷型号、画幅；信息缺失或有歧义时，再按文件夹询问。菜单中没有的胶卷和画幅可以使用“未收录胶卷”“其他画幅”，保存项目内名称；自定义画幅名称不会自动决定画框比例。
 
-可以处理相机翻拍 RAW、兼容扫描仪的线性 DNG、兼容的 16-bit 线性 RGB TIFF，以及哈苏 3F（`.fff`）扫描文件。彩色负片、反转片和黑白负片分别选择对应胶片。普通已调色 TIFF、JPG、PNG 不能代替线性原片。
+支持相机翻拍 RAW、兼容扫描仪的线性 DNG、兼容的 16-bit 线性 RGB TIFF，以及哈苏 3F（`.fff`）扫描文件。彩色负片、反转片和黑白负片分别选择对应胶片。普通已调色 TIFF、JPG、PNG 不能代替线性原片。三色拍摄请提供完整的 R/G/B 序列，以及已有的匹配平场参考。
 
-三色拍摄请提供完整的 R/G/B 序列，以及已有的匹配平场参考。Skill 会核对通道顺序，区分三色合成与独立白光照片。
+**126 先导入完整图像，再按需分帧。** Codex 会检查胶卷条数、画面数和分隔线。未处理的照片在分帧后进行 Auto；已校色的整图分帧后，子帧按已有结果继承色彩、后期和 SDR／HDR 状态，不重复校色。仍有区域复核提示的子帧会单独检查和恢复。需要整条成片时可以合回整条；合回保留各帧色彩，不保留子帧的裁切、旋转和翻转。三色合成支持多画面分帧，其子帧目前不能合回。
 
-单帧文件直接导入。一张原图含有多张画面或多条胶卷时，Codex 会先复核条数、帧数与分隔线，再处理，并检查自动处理开关，避免重复提交同一批校色。它可以修正画框，在保留裁切的情况下检查完整画面，并在重开项目时保留已有编辑。
+有明显偏色时，Skill 会先核对胶片类型与画框，再使用可用的 Color Balance，保留场景原有光线与色调。黑白负片使用明暗调整；只有片基、没有画面的片段留给你取舍。彩色 3F 缺少所需 ICC 时，可以从 [Flextight-X5-ICC](https://github.com/kehanXue/Flextight-X5-ICC) 下载并导入；黑白 3F 不需要这两项彩色 profile。
 
-彩色负片 RAW 有偏色时，可以启用 Color Balance，同时保留场景本来的光线和色调。控件会因输入类型而不同，Skill 会先检查可用性，再调整或保存快照。彩色 3F 提供独立的 Color Balance；黑白负片使用明暗调整，不套用色彩控件。只有片基、没有实际画面的片段不做细致校色，取舍留给你。彩色 3F 所需的 ICC 缺失时，可以从 [Flextight-X5-ICC](https://github.com/kehanXue/Flextight-X5-ICC) 下载并导入 Cineon26。黑白 3F 不需要这两项彩色 profile。
+### 检查、打分，再导出
 
-**2. 检查、打分，再导出**
-
-在 Cineon26 中检查项目，完成需要的编辑和评分，再告诉 Codex 怎么导出：
+在 Cineon26 中检查、编辑和评分，然后告诉 Codex：
 
 ```text
 我已经检查并打分。
 把所有有星标的照片，以及 4×5 分组下的全部照片导出到 ~/Downloads/Cineon26-Exports。
-使用原始尺寸、16-bit TIFF、ProPhoto RGB。
+使用原始尺寸、16-bit TIFF、ProPhoto RGB，保留当前裁切，不加白底。
 ```
 
-Skill 会使用项目当前的评分、编辑和裁切设置，合并选择范围，避免重复导出。只有在你明确要求后才会导出。
+Skill 使用项目当前的评分、编辑和裁切，合并重叠范围，只有你明确要求后才导出。
 
-需要 HDR 成片时，指定 HEIC（HDR）并保留 HDR；目标照片需已开启 HDR 模式，黑白负片也适用。屏幕的 HDR 显示限制不会关闭 HDR 导出。本构建中的 TIFF、PNG、JPG 导出 SDR。请说明使用当前裁切还是完整画面。
+SDR 与 HDR 分别保存影调和后期调整，Color Balance 设置共用。需要 HDR 成片时，指定 **HEIC（HDR）并保留 HDR**，App 会使用或准备独立 HDR 版本，不要求改变当前编辑模式；TIFF、PNG、JPG 输出 SDR。屏幕显示范围的限制不代表文件高光丢失。
 
-项目需要恢复时，Codex 会按 App 提示处理原片权限、缺失文件、ICC 或缓存问题，保留已有编辑和评分。请保管原片，项目文件不包含它们。
+需要白边版式时，可要求“保留白色背景”。横片和方片使用 4:3 白底，竖片使用 3:4；照片按画幅相对大小居中。尺寸选项控制包含白边的最终成品，而非内部照片尺寸。请同时说明使用当前裁切还是完整画面。
 
-### 反馈
+项目需要恢复时，Codex 会按 App 提示处理原片权限、缺失文件、ICC 或缓存问题，保留编辑与评分。已有预览不等于全分辨率导出已就绪。请保管原片：项目文件不包含它们。
 
-欢迎通过 [Issues](https://github.com/kehanXue/Cineon26-Skills/issues) 反馈问题或建议。请注明 Cineon26 版本和出现问题的操作步骤；提交截图前检查是否含有私人信息。
+### 反馈与分发
 
-本仓库只包含 Skill 操作说明和元数据。Cineon26 应用单独提供，不包含在这里，其源码、算法和用户照片也不随本仓库分发。Cineon26 自身的许可独立适用；本仓库尚未指定开源许可证。
+欢迎通过 [Issues](https://github.com/kehanXue/Cineon26-Skills/issues) 反馈问题或建议。请注明 Cineon26 版本与操作步骤，发布截图前检查私人信息。
+
+本仓库只包含 Skill 操作说明和元数据。Cineon26 应用单独提供，源码、算法和用户照片不随本仓库分发。Cineon26 自身的许可独立适用；本仓库尚未指定开源许可证。
 
 ## English
 
@@ -73,23 +71,21 @@ Let Codex operate Cineon26 to import film captures, prepare initial color, and c
 
 ### Requirements
 
-- Cineon26 installed and available on your Mac. These instructions follow 0.5.0 (120); controls may differ in other builds.
+- Cineon26 installed and available on your Mac. These instructions follow **0.5.0 (126)**; controls may differ in other builds.
 - A Codex environment with Computer Use support for native macOS apps and the necessary system permissions.
-- Access to your source and export folders.
+- Access to your source, project, and export folders.
 
 ### Install
 
 In Codex, enter:
 
 ```text
-Use $skill-installer to install https://github.com/kehanXue/Cineon26-Skills/tree/v0.1.0-beta.6/skills/cineon26-process
+Use $skill-installer to install https://github.com/kehanXue/Cineon26-Skills/tree/v0.1.0-beta.7/skills/cineon26-process
 ```
 
-Or download **Source code (zip)** from [Releases](https://github.com/kehanXue/Cineon26-Skills/releases/tag/v0.1.0-beta.6), extract it, and copy the `skills/cineon26-process` folder into `~/.agents/skills/`. Keep only one installed copy of the Skill. If it does not appear in Codex, restart the app.
+Or download **Source code (zip)** from [Releases](https://github.com/kehanXue/Cineon26-Skills/releases/tag/v0.1.0-beta.7), extract it, and copy `skills/cineon26-process` into `~/.agents/skills/`. To update, replace your existing copy and keep only one installed Skill with this name. Restart Codex if it does not appear.
 
-### Use
-
-**1. Import and prepare**
+### Import and prepare
 
 Give Codex a folder and any film information you know:
 
@@ -100,34 +96,34 @@ Import everything, prepare initial color, and fix incorrect frame selections.
 Save the project and let me know when I can review and rate the photos. Do not export yet.
 ```
 
-Folder names do not need a fixed format. The Skill uses the names and your description to understand the film stock and frame format, and asks about individual folders when information is missing or ambiguous.
+Folder names do not need a fixed format. The Skill uses the names and your description to understand the film stock and frame format, asking about individual folders when information is missing or ambiguous. Stocks and formats absent from the menus can use Unlisted Film and Other Frame Format with project-local names. A custom format name does not set the frame's aspect ratio automatically.
 
-It works with camera RAW captures, compatible scanner Linear DNG files, compatible 16-bit linear RGB TIFF files, and Hasselblad 3F (`.fff`) scans. Color negatives, reversal film, and black-and-white negatives use the corresponding film selection. Ordinary edited TIFF, JPG, and PNG files are not substitutes for linear originals.
+Supported inputs include camera RAW captures, compatible scanner Linear DNG, compatible 16-bit linear RGB TIFF, and Hasselblad 3F (`.fff`) scans. Color negatives, reversal film, and black-and-white negatives use the corresponding film selection. Ordinary edited TIFF, JPG, and PNG files are not substitutes for linear originals. For R/G/B captures, provide the complete exposure sequence and any matching flat-field references.
 
-For R/G/B captures, provide the complete exposure sequence and any matching flat-field references. The Skill checks the channel order and keeps independent white-light photos separate from the composite.
+**Build 126 imports a complete image first, then splits frames as needed.** Codex checks strip counts, frame counts, and dividers. Unprocessed frames need Auto after splitting; frames split from a processed image inherit its available color, Post-processing, and SDR/HDR states without another Auto pass. Any child frame still requesting a geometry review is checked and recovered separately. Join Film Strip can restore a complete strip while keeping each frame's color, but not its crop, rotation, or flip. RGB composites support multiple frames; their split frames cannot currently be joined back into a strip.
 
-Single-frame files import directly. When a source image contains several frames or film strips, Codex checks the strip and frame counts and adjusts the dividers before processing. It checks the automatic-processing option to avoid submitting the same batch twice. It can repair frame selections, inspect the full image without discarding your crop, and preserve your edits when reopening a project.
+For visible color casts, the Skill checks the film type and frame selections before using available Color Balance controls, preserving the scene's lighting and color. Black-and-white negatives use tonal controls; segments containing only film base are left for you to keep or discard. Missing ICC profiles for color 3F scans can be downloaded from [Flextight-X5-ICC](https://github.com/kehanXue/Flextight-X5-ICC) and imported into the app. Black-and-white 3F scans do not require these color profiles.
 
-For color-negative RAW files with a cast, Codex can enable Color Balance while preserving the scene's lighting. Available controls depend on the input type; the Skill checks them before adjusting or saving a snapshot. Color 3F scans have an independent Color Balance option; black-and-white negatives use tonal adjustments instead of color controls. Segments containing only film base are left for you to discard or keep, without detailed color adjustment. Missing ICC profiles for color 3F scans can be downloaded from [Flextight-X5-ICC](https://github.com/kehanXue/Flextight-X5-ICC) and imported into Cineon26. Black-and-white 3F scans do not require these color profiles.
+### Review, rate, then export
 
-**2. Review, rate, then export**
-
-Check the project in Cineon26, make any edits, and rate the photos. Then give Codex your export instructions:
+Review, edit, and rate the project in Cineon26, then tell Codex:
 
 ```text
 I have finished reviewing and rating the photos.
 Export every starred photo and all photos in the 4×5 group to ~/Downloads/Cineon26-Exports.
-Use original dimensions, 16-bit TIFF, and ProPhoto RGB.
+Use original dimensions, 16-bit TIFF, and ProPhoto RGB. Keep the current crops and do not add a white background.
 ```
 
-The Skill uses the project's current ratings, edits, and crop settings, and avoids exporting the same photo twice when selections overlap. It exports only when you ask.
+The Skill uses current ratings, edits, and crops, merges overlapping selections, and exports only when you ask.
 
-For HDR delivery, request HEIC (HDR) with Preserve HDR; the selected photos must have HDR Mode enabled. This also applies to black-and-white negatives. A screen's HDR limitation does not disable HDR export. TIFF, PNG, and JPG export SDR in this build. State whether you want the current crop or the full image.
+SDR and HDR retain separate tonal and Post-processing adjustments while sharing Color Balance settings. For HDR delivery, request **HEIC (HDR) with Preserve HDR**. The app uses or prepares an independent HDR version without changing the current editing mode. TIFF, PNG, and JPG export SDR. A screen's brightness limit does not mean that highlights are missing from the file.
 
-If a project needs recovery, Codex follows the app's guidance for source access, missing files, ICC profiles, or cached results while preserving your edits and ratings. Keep your originals: a project file does not contain them.
+For a white-border layout, request Preserve White Background. Landscape and square photos use a 4:3 canvas; portraits use 3:4. Photos are centered at sizes relative to their film format. The size option controls the final canvas including its border, not the image inside it. Also state whether to use the current crop or the full image.
 
-### Feedback
+If a project needs recovery, Codex follows the app's guidance for source access, missing files, ICC profiles, or cached results while preserving edits and ratings. An available preview does not prove that full-resolution export is ready. Keep your originals: a project file does not contain them.
 
-Report problems or suggest improvements in [Issues](https://github.com/kehanXue/Cineon26-Skills/issues). Include your Cineon26 version and the steps leading to the problem; check screenshots for private information before posting.
+### Feedback and distribution
+
+Report problems or suggest improvements in [Issues](https://github.com/kehanXue/Cineon26-Skills/issues). Include your Cineon26 version and the steps involved, and check screenshots for private information before posting.
 
 This repository contains Skill instructions and metadata. Cineon26 is distributed separately; its application code, algorithms, and user photos are not included. Cineon26's own terms apply independently. This repository currently has no open-source license.
