@@ -4,6 +4,19 @@
 
 ## 简体中文
 
+### v0.1.0-beta.8 — 2026-11-21
+
+按 Cineon26 0.5.0（129）更新，并重新整理 Skill 的入口与操作指引。
+
+- 按导入、继续处理、恢复项目或接续导出进入相应步骤，减少重复检查和不必要的重新校色。
+- 更新统一导入、扫描 TIFF、分帧与合回流程，区分继承结果、区域复核和已完成处理。
+- 默认逐张自动校色；按需使用参数复制、Color Balance 与中性参考，保留场景色调和已有编辑。
+- 更新画框、裁切、快照与缓存恢复说明，按实际提示处理原片访问、ICC 和可恢复错误。
+- 修正 HEIC 保留 HDR 的说明：每张照片按当前 SDR／HDR 模式导出，混合选区逐张核对。
+- 精简记录与文件核验要求，不再强制普通处理反复计算全部原片哈希，也不默认生成最大体积成片。
+
+仍先保存项目交给你检查、打分，收到导出要求后再继续。
+
 ### v0.1.0-beta.7 — 2026-11-15
 
 按 Cineon26 0.5.0（126）更新操作说明，涵盖自 120 以来的累计变化。
@@ -75,6 +88,19 @@
 - 提供 RAW Color Balance、3F 分帧、ICC 配置和导出缓存缺失时的操作提示。
 
 ## English
+
+### v0.1.0-beta.8 — 2026-11-21
+
+Update the Skill for Cineon26 0.5.0 (129) and reorganize its entry point and operating guidance.
+
+- Start at the relevant step for importing, continuing edits, recovering a project, or resuming export, avoiding redundant checks and unnecessary Auto Color passes.
+- Update unified import, scanner TIFF, splitting, and joining guidance; distinguish inherited results, geometry review, and completed processing.
+- Use independent Auto Color by default, with parameter reuse, Color Balance, and neutral references when appropriate, preserving scene lighting and existing edits.
+- Refresh frame, crop, snapshot, and cache-recovery guidance, following actionable messages for source access, ICC profiles, and recoverable errors.
+- Correct Preserve HDR guidance: HEIC uses each photo's current SDR/HDR mode, including mixed selections.
+- Simplify tracking and file verification. Routine work no longer requires repeated full-source hashing or defaults to the largest export files.
+
+Projects still stop for your review and ratings after saving. Export begins only when requested.
 
 ### v0.1.0-beta.7 — 2026-11-15
 
